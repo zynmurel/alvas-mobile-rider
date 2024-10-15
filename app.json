@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "AlvasRider",
+    "slug": "AlvasRider",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0d6003"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adapt0ive-icon.png",
+        "backgroundColor": "#0d6003"
+      },
+      "package": "com.zynmurel.AlvasRider"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6542e1b9-65e5-44d9-bebb-5037b4c2e9ff"
+      }
+    }
+  }
+}

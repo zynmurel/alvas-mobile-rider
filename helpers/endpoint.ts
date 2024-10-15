@@ -1,0 +1,1 @@
+export const baseUrl = "https://alvas-web.vercel.app"
