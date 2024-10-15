@@ -21,6 +21,7 @@ type LoginScreenProps = {
 export default function LoginScreen({ navigation }: LoginScreenProps) {
     const { setUser } = useUserStore();
     const [username, setUsername] = useState('');
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState<{ username?: string; password?: string }>({});
@@ -99,13 +100,21 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
 
             <Text style={tw`mt-2 text-base font-bold text-green-700 `}>Password</Text>
             <View style={tw`relative`}>
-                <TextInput
-                    style={tw`border rounded-lg p-4 mb-1 ${errors.password ? 'border-red-500' : ''}`}
-                    placeholder="Input password"
-                    value={password}
-                    onChangeText={setPassword}
-                    secureTextEntry={true}
-                />
+                <View style={tw`border rounded-lg flex-row items-center p-4 mb-1 ${errors.password ? 'border-red-500' : ''}`}>
+                    <TextInput
+                        style={tw`flex-1`}
+                        placeholder="Input password"
+                        value={password}
+                        onChangeText={setPassword}
+                        secureTextEntry={!isPasswordVisible} // Toggle secureTextEntry based on state
+                    />
+                    <TouchableOpacity
+                        onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+                        style={tw`pl-3`}
+                    >
+                        <Text>{isPasswordVisible ? <Feather name="eye" size={18} /> : <Feather name="eye-off" size={18} />}</Text>
+                    </TouchableOpacity>
+                </View>
                 {/* <TouchableOpacity  style={tw`absolute bg-red-100 right-4 bottom-5 z-2`} onPress={()=>navigation.navigate('Register')}>
             <Feather name="eye" size={22} color="gray" />
             </TouchableOpacity> */}
